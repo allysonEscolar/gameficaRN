@@ -1,0 +1,30 @@
+[
+    {
+        "nomeJogo": "Jogo 1",
+        "disciplina": "Matemática",
+        "conteudo": "Álgebra",
+        "descricao": "Um jogo divertido para aprender equações algébricas.",
+        "linkJogo": "http://example.com/jogo1"
+    },
+    {
+        "nomeJogo": "Jogo 2",
+        "disciplina": "Ciências",
+        "conteudo": "Biologia",
+        "descricao": "Exploração do corpo humano e seus sistemas.",
+        "linkJogo": "http://example.com/jogo2"
+    },
+    {
+        "nomeJogo": "Jogo 3",
+        "disciplina": "Geografia",
+        "conteudo": "Mapas",
+        "descricao": "Aprenda sobre os continentes e oceanos do mundo.",
+        "linkJogo": "http://example.com/jogo3"
+    },
+    {
+        "nomeJogo": "Jogo 4",
+        "disciplina": "História",
+        "conteudo": "Idade Média",
+        "descricao": "Um jogo interativo sobre os principais eventos da Idade Média.",
+        "linkJogo": "http://example.com/jogo4"
+    }
+]

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+    <div class="container mt-5">
+      <h2 class="mb-4">Adicionar Jogo</h2>
+      <form action="" method="POST">
+          <div class="mb-3">
+              <label for="nomeJogo" class="form-label">Nome do Jogo:</label>
+              <input type="text" class="form-control" id="nomeJogo" name="nomeJogo" required>
+          </div>
+          <div class="mb-3">
+              <label for="disciplina" class="form-label">Disciplina:</label>
+              <input type="text" class="form-control" id="disciplina" name="disciplina" required>
+          </div>
+          <div class="mb-3">
+              <label for="conteudo" class="form-label">Conteúdo:</label>
+              <input type="text" class="form-control" id="conteudo" name="conteudo" required>
+          </div>
+          <div class="mb-3">
+              <label for="descricao" class="form-label">Descrição:</label>
+              <textarea class="form-control" id="descricao" name="descricao" rows="3" required></textarea>
+          </div>
+          <div class="mb-3">
+              <label for="linkJogo" class="form-label">Link do Jogo:</label>
+              <input type="url" class="form-control" id="linkJogo" name="linkJogo" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Adicionar Jogo</button>
+      </form>
+  </div>
+
+{% endblock %}

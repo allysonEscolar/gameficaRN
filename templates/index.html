@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela de Jogos Educativos</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nome do Jogo</th>
+                <th>Disciplina</th>
+                <th>Conteúdo</th>
+                <th>Descrição</th>
+                <th>Link do Jogo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in dados %}
+            <tr>
+                <td>{{d.nomeJogo}}</td>
+                <td>{{d.disciplina}}</td>
+                <td>{{d.conteudo}}</td>
+                <td>{{d.descricao}}</td>
+                <td> <a href="{{d.linkJogo}}" target="_blank">Acessar Jogo</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
