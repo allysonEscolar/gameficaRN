@@ -8,10 +8,6 @@ body {
 .content {
     flex: 1;
 }
-.footer {
-    background-color: #f8f9fa;
-    padding: 1rem 0;
-}
 
 .about-section {
     padding: 5rem 0;
