@@ -2,7 +2,7 @@
 
 ## Sumário
 
-- [desafio-dev-backend](#gameficaRN)
+- [gameficaRN](#gameficaRN)
   - [Sumário](#sumário)
   - [Descrição](#descrição)
   - [Descrição](#sobre)
