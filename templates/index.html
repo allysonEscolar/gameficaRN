@@ -4,6 +4,7 @@
 
 <div class="container mt-5">
     <h2 class="mb-4">Tabela de Jogos Educativos</h2>
+    <a class="btn btn-primary mb-2" href="{{ url_for('jogo.cadastroGET') }}">Adicionar</a>
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
             <tr>
@@ -11,7 +12,7 @@
                 <th>Disciplina</th>
                 <th>Conteúdo</th>
                 <th>Descrição</th>
-                <th>Link do Jogo</th>
+                <th>Editar</th>
             </tr>
         </thead>
         <tbody>
@@ -21,7 +22,7 @@
                 <td>{{d.disciplina}}</td>
                 <td>{{d.conteudo}}</td>
                 <td>{{d.descricao}}</td>
-                <td> <a href="{{d.linkJogo}}" target="_blank">Acessar Jogo</a>
+                <td> <a href="{{ url_for('jogo.recovery_id', id=d.id) }}">Editar</a>
                 </td>
             </tr>
             {% endfor %}

@@ -22,8 +22,25 @@
               <textarea class="form-control" id="descricao" name="descricao" rows="3" required></textarea>
           </div>
           
-          <button type="submit" class="btn btn-primary">Adicionar Jogo</button>
+          <button type="submit" class="btn btn-primary">Atualizar Jogo</button>
+          <a class="btn btn-primary" href="{{ url_for('jogo.delete', id=jogo.id) }}">Excluir</a>
       </form>
   </div>
 
+{% endblock %}
+
+{% block script %}
+  <script>
+    const inputnomeJogo  = document.querySelector('[name="nomeJogo"]');
+    inputnomeJogo.value  = '{{jogo.nomeJogo}}';
+
+    const inputdisciplina  = document.querySelector('[name="disciplina"]');
+    inputdisciplina.value  = '{{jogo.disciplina}}';
+
+    const inputconteudo  = document.querySelector('[name="conteudo"]');
+    inputconteudo.value  = '{{jogo.conteudo}}';
+
+    const inputdescricao  = document.querySelector('[name="descricao"]');
+    inputdescricao.value  = '{{jogo.descricao}}';
+  </script>
 {% endblock %}

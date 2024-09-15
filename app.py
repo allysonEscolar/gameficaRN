@@ -1,38 +1,21 @@
 from flask import Flask, render_template, flash, redirect, request, url_for, json
+from data.database import db
+from flask_migrate import Migrate
+
+from model.jogo import Jogo
+
+from controller.JogoController import ControllerJogo
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def index():
-    arquivo = open("static/jogos.json")
-    dados = json.load(arquivo)
-    return render_template('index.html', dados=dados)
+app.config['SECRET_KEY'] = 'wdjdnjdnwdnwlqndlkdwmlkdeuhf4h4t48t5pt9r49-2--o23'
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
+conexao = 'mysql+pymysql://desweb2024:D3sw3b1frn!@weblic2024.mysql.database.azure.com/web2024_gameficarn'
+app.config['SQLALCHEMY_DATABASE_URI'] = conexao
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-@app.route('/autenticar', methods=['POST'])
-def autenticar():
-    email = request.form["email"]
-    senha = request.form["senha"]
-    if (email=="admin@email.com" and senha=="123"):
-        return render_template('telaAdmin.html')
-    else:
-        flash('E-mail ou senha inválidos', 'danger')
-        flash('Tente novamente', 'warning')
+db.init_app(app)
+migrate = Migrate(app, db)
 
-        return redirect(url_for('login'))
-
-
-@app.route('/adicionarJogo')
-def adicionarJogo():
-    return render_template('adicionarJogo.html')
-
-@app.route('/sobre')
-def sobre():
-    return render_template('sobre.html')
-
-@app.route('/contato')
-def contato():
-    return render_template('contato.html')
+# Controladores
+app.register_blueprint(ControllerJogo)
