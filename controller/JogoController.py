@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from jinja2 import TemplateNotFound
 from model.jogo import Jogo
 from data.database import db
 
@@ -22,6 +21,7 @@ def cadastroPOST():
   disciplina = request.form.get("disciplina")
   conteudo = request.form.get("conteudo")
   descricao = request.form.get("descricao")
+  link = request.form.get("link")
 
   jogo = Jogo(nomeJogo, disciplina, conteudo, descricao)
   db.session.add(jogo)
@@ -42,6 +42,7 @@ def update(id):
   jogo.disciplina = request.form.get("disciplina")
   jogo.conteudo = request.form.get("conteudo")
   jogo.descricao = request.form.get("descricao")
+  jogo.link = request.form.get("link")
 
   db.session.add(jogo)
   db.session.commit()
@@ -57,22 +58,6 @@ def delete(id):
   return redirect("/")
 
 ### Rotas removidas do app.py. É necessário criar um BluePrint especifica para elas
-
-@ControllerJogo.route('/login')
-def login():
-    return render_template('login.html')
-
-@ControllerJogo.route('/autenticar', methods=['POST'])
-def autenticar():
-    email = request.form["email"]
-    senha = request.form["senha"]
-    if (email=="admin@email.com" and senha=="123"):
-        return render_template('telaAdmin.html')
-    else:
-        flash('E-mail ou senha inválidos', 'danger')
-        flash('Tente novamente', 'warning')
-
-        return redirect(url_for('login'))
 
 @ControllerJogo.route('/sobre')
 def sobre():

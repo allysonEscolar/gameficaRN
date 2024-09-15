@@ -1,53 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <link rel="stylesheet" href="static/style.css" />
     <title>gameficaRN</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li>
+              <a class="navbar-brand" href="{{ url_for('jogo.recovery') }}">gRN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('jogo.sobre') }}">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('jogo.contato') }}">Contato</a>
+            </li>
+
             
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('jogo.sobre')}}">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('jogo.contato')}}">Contato</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('jogo.login')}}">Login</a>
-                    </li>
-                </ul>
-            </div>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            {% if not current_user.is_authenticated %}
+              <li class="nav-item">
+                <a href="{{ url_for('usuario.login') }}" class="nav-link">Login</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a href="{{ url_for('usuario.logoff') }}" class="nav-link">Logout</a>
+              </li>
+            {% endif %}
+          </ul>
+          
         </div>
+      </div>
     </nav>
 
     <main class="content" style="background-color: #f8f9fa;">
-        {% block conteudo %}
-        {% endblock %}
+      {% block conteudo %}
+
+      {% endblock %}
     </main>
 
     <footer class="footer-custom mt-3">
-        <div class="container text-center ">
-            <p>&copy; 2024 gameficaRN. Todos os direitos reservados.</p>
-            <p>
-                <a href="#">Política de Privacidade</a> |
-                <a href="#">Termos de Uso</a> |
-                <a href="#">Contato</a>
-            </p>
-        </div>
+      <div class="container text-center">
+        <p>&copy; 2024 gameficaRN. Todos os direitos reservados.</p>
+        <p>
+          <a href="#">Política de Privacidade</a> |
+          <a href="#">Termos de Uso</a> |
+          <a href="#">Contato</a>
+        </p>
+      </div>
     </footer>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -56,7 +65,7 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     {% block script %}
-    {% endblock %}
-</body>
 
+    {% endblock %}
+  </body>
 </html>

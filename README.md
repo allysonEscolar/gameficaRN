@@ -2,12 +2,13 @@
 
 ## Sumário
 
-- [gameficaRN](#gameficaRN)
+- [gameficaRN](#gameficarn)
   - [Sumário](#sumário)
-  - [Descrição](#descrição)
-  - [Descrição](#sobre)
-  - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-  - [Uso](#uso)
+    - [Descrição](#descrição)
+    - [Sobre](#sobre)
+    - [Tecnologias Utilizadas](#tecnologias-utilizadas)
+    - [Instalação](#instalação)
+    - [Uso](#uso)
   
 
 ### Descrição
@@ -35,9 +36,9 @@ Passo a passo de como configurar o ambiente de desenvolvimento e instalar as dep
     python -m venv venv
     . venv/bin/activate  # No Windows: venv\Scripts\activate
     ```
-3. Instale o Flask 
+3. Instale as dependências:
     ```bash
-    pip install flask
+    pip install -r requirements.txt
     ```
 
 ### Uso

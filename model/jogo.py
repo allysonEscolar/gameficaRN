@@ -7,12 +7,14 @@ class Jogo(db.Model):
   disciplina = db.Column(db.String(100))
   conteudo   = db.Column(db.String(300))
   descricao  = db.Column(db.String(500))
+  link  = db.Column(db.String(500))
 
-  def __init__(self, nomeJogo, disciplina, conteudo, descricao) :
+  def __init__(self, nomeJogo, disciplina, conteudo, descricao, link) :
     self.nomeJogo   = nomeJogo
     self.disciplina = disciplina
     self.conteudo   = conteudo
     self.descricao  = descricao
+    self.link  = link
 
   def __repr__(self):
     return "Jogo: {}".format(self.nome)
