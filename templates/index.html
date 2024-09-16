@@ -14,7 +14,10 @@
                 <th>Disciplina</th>
                 <th>Conteúdo</th>
                 <th>Descrição</th>
+                {% if not current_user.is_authenticated == False %}
                 <th>Ações</th>
+            {% endif %}
+                
             </tr>
         </thead>
         <tbody>
@@ -25,9 +28,11 @@
                 <td>{{d.disciplina}}</td>
                 <td>{{d.conteudo}}</td>
                 <td>{{d.descricao}}</td>
+                {% if not current_user.is_authenticated == False %}
                 <td> <a class="btn btn-info text-light" href="{{ url_for('jogo.recovery_id', id=d.id) }}">Editar</a>
                     <a class="btn btn-danger" href="{{ url_for('jogo.delete', id=d.id) }}">Deletar</a>
                 </td>
+                {%endif%}
             </tr>
             {% endfor %}
         </tbody>
