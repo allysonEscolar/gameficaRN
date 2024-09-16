@@ -4,7 +4,9 @@
 
 <div class="container mt-5">
     <h2 class="mb-4">Tabela de Jogos Educativos</h2>
+    {% if current_user.is_authenticated %}
     <a class="btn btn-primary mb-2" href="{{ url_for('jogo.cadastroGET') }}">Adicionar</a>
+    {% endif %}
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
             <tr>
@@ -12,17 +14,19 @@
                 <th>Disciplina</th>
                 <th>Conteúdo</th>
                 <th>Descrição</th>
-                <th>Editar</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
             {% for d in dados %}
             <tr>
-                <td>{{d.nomeJogo}}</td>
+                <td> <a href="{{d.link}}">{{d.nomeJogo}}</a>
+                </td>
                 <td>{{d.disciplina}}</td>
                 <td>{{d.conteudo}}</td>
                 <td>{{d.descricao}}</td>
-                <td> <a href="{{ url_for('jogo.recovery_id', id=d.id) }}">Editar</a>
+                <td> <a class="btn btn-info text-light" href="{{ url_for('jogo.recovery_id', id=d.id) }}">Editar</a>
+                    <a class="btn btn-danger" href="{{ url_for('jogo.delete', id=d.id) }}">Deletar</a>
                 </td>
             </tr>
             {% endfor %}

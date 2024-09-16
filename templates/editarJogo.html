@@ -22,8 +22,8 @@
               <textarea class="form-control" id="descricao" name="descricao" rows="3" required></textarea>
           </div>
           
-          <button type="submit" class="btn btn-primary">Atualizar Jogo</button>
-          <a class="btn btn-primary" href="{{ url_for('jogo.delete', id=jogo.id) }}">Excluir</a>
+          <button type="submit" class="btn btn-info text-light">Atualizar Jogo</button>
+          <a class="btn btn-danger" href="{{ url_for('jogo.delete', id=jogo.id) }}">Deletar</a>
       </form>
   </div>
 

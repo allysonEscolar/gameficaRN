@@ -29,11 +29,11 @@
           <ul class="navbar-nav ml-auto">
             {% if not current_user.is_authenticated %}
               <li class="nav-item">
-                <a href="{{ url_for('usuario.login') }}" class="nav-link">Login</a>
+                <a class="btn btn-primary" href="{{ url_for('usuario.login') }}" class="nav-link">Login</a>
               </li>
             {% else %}
               <li class="nav-item">
-                <a href="{{ url_for('usuario.logoff') }}" class="nav-link">Logout</a>
+                <a class="btn btn-danger" href="{{ url_for('usuario.logoff') }}" class="nav-link">Logout</a>
               </li>
             {% endif %}
           </ul>
