@@ -19,10 +19,7 @@ def autenticar():
     if(usuario and usuario.senha == senha):
         login_user(usuario)
         return redirect(url_for('jogo.recovery'))
-    
-        return 'logado'
-        # return redirect('/')
-    flash('Login ou senha incorretos')
+    flash('Login ou senha incorretos', 'danger')
     return redirect('login')    
 
 @bp_usuario.route('/logoff')

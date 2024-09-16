@@ -2,6 +2,17 @@
 
 {% block conteudo %}
 
+{% set mensagens = get_flashed_messages(with_categories=true) %}
+{% if mensagens %}
+    <div>
+        <ul class="list-group">
+        {% for cat, m in mensagens %}
+            <li class="alert alert-{{cat}}">{{m}}</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
 <div class="container mt-5" style="display: flex; flex-flow: column; align-items: center;" >
 <form action="{{url_for('usuario.autenticar')}}" method="POST" class="col-md-6"> 
     <div class="mb-3">

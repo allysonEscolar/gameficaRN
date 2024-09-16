@@ -51,6 +51,7 @@ def update(id):
 
   db.session.add(jogo)
   db.session.commit()
+  flash('Jogo modificado com sucesso', 'success')
   
   return redirect("/")
 
